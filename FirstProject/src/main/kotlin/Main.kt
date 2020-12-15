@@ -12,4 +12,7 @@ fun main(args: Array<String>) {
 
     mohsen.show()
     masood.show()
+
+    val redPotion = Loot("Red Potion",LootType.POTION, 7.50)
+    mohsen.inventory.add(redPotion)
 }
