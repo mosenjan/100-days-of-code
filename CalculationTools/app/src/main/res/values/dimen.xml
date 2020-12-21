@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="editText_horizontalMargin">@dimen/_50ssp</dimen>
+    <dimen name="editText_verticalMargin">@dimen/_10ssp</dimen>
+</resources>

@@ -10,13 +10,16 @@ class Player(val name:String, var lives: Int = 3, var level:Int = 1, var score:I
             lives: $lives
             level: $level
             score: $score
-            weapon Name: ${weapon.name}
-            weapon Damage: ${weapon.damageInflicted}
+            $weapon
             
         """.trimIndent())
     }
 
     fun showInventory() {
         println("$name's Inventory")
+        for(item in inventory){
+            println(item)
+        }
+        println("=============================")
     }
 }

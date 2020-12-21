@@ -14,5 +14,15 @@ fun main(args: Array<String>) {
     masood.show()
 
     val redPotion = Loot("Red Potion",LootType.POTION, 7.50)
+    val greenPotion = Loot("Green Potion",LootType.POTION, 1.50)
     mohsen.inventory.add(redPotion)
+    mohsen.inventory.add(greenPotion)
+    mohsen.showInventory()
+
+
+    for (i in 0..100 step 5){
+       if (i % 3 == 0){
+           println(i)
+       }
+    }
 }
