@@ -1,20 +1,21 @@
 package com.example.firstproject
 
-fun main(){
-    var courseName: String = "Android MasterClass"
-    val pi:Float = 13.37F
-    var age:Short = 25
-    var year:Short = 2020
-    var randomNumber: Long = 121_212_324_587
-    var isKuni:Boolean = true
-    var firstLetterOfName:Char = 'm'
+fun main() {
+ val myPhone = MobilePhone("ios","Apple", "X")
 
-    println("Hello Word")
-    println(courseName)
-    println(pi)
-    println(age)
-    println(year)
-    println(randomNumber)
-    println(isKuni)
-    println(firstLetterOfName)
 }
+
+class MobilePhone(var osName:String, var brand:String,var model:String) {
+    var charge: Int = 20
+
+    init {
+        println("The phone $brand modele $model use $osName as operating system")
+        chargeBattery(30)
+    }
+
+    fun chargeBattery(a: Short) {
+        println("before charge is $charge , add $a , Now charhe is ${charge+a}  ")
+        this.charge += a
+    }
+}
+
