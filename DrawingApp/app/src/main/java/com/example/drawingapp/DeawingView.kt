@@ -3,6 +3,7 @@ package com.example.drawingapp
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 
@@ -19,7 +20,6 @@ class DeawingView(context: Context,attrs: AttributeSet) : View(context,attrs) {
 
     init {
         setUpDrawing()
-
     }
 
     private fun setUpDrawing(){
@@ -29,7 +29,6 @@ class DeawingView(context: Context,attrs: AttributeSet) : View(context,attrs) {
         mDrawPaint!!.style = Paint.Style.STROKE
         mDrawPaint!!.strokeCap = Paint.Cap.ROUND
         mCanvasPaint = Paint(Paint.DITHER_FLAG)
-        mBrushSize = 20.toFloat()
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -54,6 +53,11 @@ class DeawingView(context: Context,attrs: AttributeSet) : View(context,attrs) {
             canvas.drawPath(mDrawPath!!, mDrawPaint!!)
         }
 
+    }
+
+    fun setColor(newColor: String){
+        color = Color.parseColor(newColor)
+        mDrawPaint!!.color = color
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -83,6 +87,13 @@ class DeawingView(context: Context,attrs: AttributeSet) : View(context,attrs) {
         }
         invalidate()
         return  true
+    }
+
+    fun setSizeForBrush(newSize: Float){
+
+        mBrushSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+        newSize,resources.displayMetrics)
+        mDrawPaint!!.strokeWidth = mBrushSize
     }
 
     internal inner class CustomPath(var color: Int,var brushThickness: Float): Path(){
