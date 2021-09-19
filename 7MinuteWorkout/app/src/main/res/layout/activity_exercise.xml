@@ -20,8 +20,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar_exercise_activity"
         android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="visible">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,6 +66,27 @@
 
         </FrameLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="تمین بعدی:"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:id="@+id/tvNextExerciseName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="exercise name"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            />
+
     </LinearLayout>
 
     <LinearLayout
@@ -75,16 +95,30 @@
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar_exercise_activity"
         android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:layout_above="@id/rvExerciseStatus"
+        android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_jumping_jacks"
+            />
+        
         <TextView
+            android:id="@+id/tvExerciseName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:text="نام تمرین"
             android:textSize="22sp"
             android:textStyle="bold"/>
+        
+        
+        
         <FrameLayout
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -124,6 +158,13 @@
 
     </LinearLayout>
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvExerciseStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        />
 
 </RelativeLayout>
