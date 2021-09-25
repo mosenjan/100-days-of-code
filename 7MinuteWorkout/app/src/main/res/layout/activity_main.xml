@@ -35,6 +35,39 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ll"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="حسابگر"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/tvBMI"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="BMI"
+            android:background="@drawable/item_circular_color_gray_background"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+
+
+    </LinearLayout>
+
 
 </LinearLayout>
 
