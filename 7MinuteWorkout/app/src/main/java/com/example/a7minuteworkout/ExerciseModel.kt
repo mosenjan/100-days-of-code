@@ -1,50 +1,40 @@
 package com.example.a7minuteworkout
 
-class ExerciseModel ( private var id:Int,
-                      private var name:String,
-                      private var image:Int,
-                      private var isCompleted:Boolean,
-                      private var isSelected:Boolean) {
+data class ExerciseModel (
+    val code : String,
+    val title : String,
+    val category : CategoryModel,
+    val stance : String,
+    val skill_required : Int,
+    val skill_max : Int,
+    val sexyness : Int,
+    val looks_cool : Int,
+    val impact : Int,
+    val noisy : Int,
+    val change_sides : Boolean,
+    val sets : String,
+    val constraint_positive : String,
+    val constraint_negative : String,
+    val duration : Int,
+    val reps : Int,
+    val reps_double : Boolean,
+    val reps_count_times : List<String>,
+    val reps_hint : String,
+    val tool : String,
+    val muscle_intensity : MuscleIntensityModel,
+    val instructions : InstructionsModel
+    ) {
 
-    fun getId():Int{
-        return id
-    }
+    fun getId():String{
+        return code
 
-    fun setId(id: Int){
-        this.id = id
     }
 
     fun getName():String{
-        return name
+        return title
+
     }
 
-    fun setName(name: String){
-        this.name = name
-    }
-
-    fun getImage():Int{
-        return image
-    }
-
-    fun setImage(image: Int){
-        this.image = image
-    }
-
-    fun getIsCompleted():Boolean{
-        return isCompleted
-    }
-
-    fun setIsCompleted(isCompleted: Boolean){
-        this.isCompleted = isCompleted
-    }
-
-    fun getIsSelected():Boolean{
-        return isSelected
-    }
-
-    fun setIsSelected(isSelected: Boolean){
-        this.isSelected = isSelected
-    }
 
 
 }

@@ -1,0 +1,75 @@
+package com.example.a7minuteworkout
+
+
+import android.net.Uri
+import android.os.Bundle
+import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.VideoView
+import androidx.navigation.fragment.navArgs
+import org.json.JSONObject
+import kotlinx.android.synthetic.main.fragment_exercise_detail.*
+
+
+class ExerciseDetailFragment : Fragment() {
+
+    var code = ""
+    var title  = ""
+    var description  = ""
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        val view = inflater.inflate(R.layout.fragment_exercise_detail, container, false)
+
+
+
+
+        // Inflate the layout for this fragment
+        return view
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val ex = ExerciseListFragment()
+        val obj = JSONObject(ex.loadJSONFromAsset(requireActivity()))
+        val exerciseArray = obj.getJSONArray("exercises")
+
+
+        val args : ExerciseDetailFragmentArgs by navArgs()
+
+        Log.i("args",""+args)
+
+
+        for (i in 0 until exerciseArray.length()){
+            val exerciseDetail = exerciseArray.getJSONObject(i)
+            if (exerciseDetail.getString("code") == args.code){
+                code = exerciseDetail.getString("code")
+                title = exerciseDetail.getString("title")
+            }
+        }
+
+        tvTitle.text = title
+
+
+        setUpVideo()
+
+
+    }
+    fun setUpVideo(){
+        val view = vView as VideoView
+        val path = "android.resource://" + activity!!.packageName + "/raw/" + code
+        view.setVideoURI(Uri.parse(path))
+        view.start()
+        view.setOnCompletionListener { view.start() }
+
+
+    }
+}

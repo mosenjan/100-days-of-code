@@ -2,4 +2,6 @@
     <string name="app_name">7MinuteWorkout</string>
     <string name="str_start">شروع</string>
     <string name="image">Exercise Image</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
