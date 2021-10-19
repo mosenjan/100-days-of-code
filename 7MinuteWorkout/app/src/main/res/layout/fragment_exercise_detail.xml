@@ -57,6 +57,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"/>
     <TextView
+        android:id="@+id/tvhints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ایجوری نزن اوجوری بزن"
@@ -79,6 +80,7 @@
         android:layout_marginRight="10dp"/>
 
     <TextView
+        android:id="@+id/tvBreathing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="نفس بکش نفس کش"

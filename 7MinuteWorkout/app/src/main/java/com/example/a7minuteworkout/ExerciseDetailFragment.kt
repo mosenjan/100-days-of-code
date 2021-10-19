@@ -18,7 +18,8 @@ class ExerciseDetailFragment : Fragment() {
 
     var code = ""
     var title  = ""
-    var description  = ""
+    var strHints = ""
+    var strbreathing = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,14 +46,28 @@ class ExerciseDetailFragment : Fragment() {
 
         val args : ExerciseDetailFragmentArgs by navArgs()
 
-        Log.i("args",""+args)
-
-
         for (i in 0 until exerciseArray.length()){
             val exerciseDetail = exerciseArray.getJSONObject(i)
             if (exerciseDetail.getString("code") == args.code){
                 code = exerciseDetail.getString("code")
                 title = exerciseDetail.getString("title")
+                val ins = exerciseDetail.getJSONObject("instructions")
+                val hints = ins.getJSONArray("hints")
+                val breathing = ins.getJSONArray("breathing")
+
+                for (j in 0 until hints.length()){
+
+                    val a : String = hints[j].toString()
+                    strHints += getStringByName(a)
+                }
+                 for (u in 0 until breathing.length()){
+                    val b : String = breathing[u].toString()
+                    strbreathing += getStringByName(b)
+                }
+
+                tvhints.text = strHints
+                tvBreathing.text = strbreathing
+
             }
         }
 
@@ -63,6 +78,13 @@ class ExerciseDetailFragment : Fragment() {
 
 
     }
+
+
+    fun getStringByName(name: String): String {
+        return resources.getString(resources.getIdentifier(name, "string", getActivity()?.getPackageName()))
+    }
+
+
     fun setUpVideo(){
         val view = vView as VideoView
         val path = "android.resource://" + activity!!.packageName + "/raw/" + code
