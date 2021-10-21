@@ -1,16 +1,15 @@
-package com.example.a7minuteworkout
+package com.example.a7minuteworkout.fragments
 
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.VideoView
 import androidx.navigation.fragment.navArgs
-import org.json.JSONObject
+import com.example.a7minuteworkout.R
 import kotlinx.android.synthetic.main.fragment_exercise_detail.*
 
 
@@ -38,41 +37,23 @@ class ExerciseDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val ex = ExerciseListFragment()
-        val obj = JSONObject(ex.loadJSONFromAsset(requireActivity()))
-        val exerciseArray = obj.getJSONArray("exercises")
-
-
         val args : ExerciseDetailFragmentArgs by navArgs()
 
-        for (i in 0 until exerciseArray.length()){
-            val exerciseDetail = exerciseArray.getJSONObject(i)
-            if (exerciseDetail.getString("code") == args.code){
-                code = exerciseDetail.getString("code")
-                title = exerciseDetail.getString("title")
-                val ins = exerciseDetail.getJSONObject("instructions")
-                val hints = ins.getJSONArray("hints")
-                val breathing = ins.getJSONArray("breathing")
+        code = args.exercise.code
+        title = args.exercise.title
 
-                for (j in 0 until hints.length()){
-
-                    val a : String = hints[j].toString()
-                    strHints += getStringByName(a)
-                }
-                 for (u in 0 until breathing.length()){
-                    val b : String = breathing[u].toString()
-                    strbreathing += getStringByName(b)
-                }
-
-                tvhints.text = strHints
-                tvBreathing.text = strbreathing
-
-            }
+        val hints = args.exercise.instructions.hints
+        for (i in 0 until hints.size){
+            strHints += getStringByName(hints[i])
         }
 
-        tvTitle.text = title
+        val breathing = args.exercise.instructions.breathing
+        for (i in 0 until breathing.size){
+            strbreathing += getStringByName(breathing[i])
+        }
 
+        tvhints.text = strHints
+        tvBreathing.text = strbreathing
 
         setUpVideo()
 

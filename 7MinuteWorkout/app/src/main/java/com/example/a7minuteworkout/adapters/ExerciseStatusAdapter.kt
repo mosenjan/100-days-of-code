@@ -1,15 +1,15 @@
-package com.example.a7minuteworkout
+package com.example.a7minuteworkout.adapters
 
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.a7minuteworkout.R
+import com.example.a7minuteworkout.models.Exercises
 import kotlinx.android.synthetic.main.item_exercise_status.view.*
 
-class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Context) :
+class ExerciseStatusAdapter(val items: ArrayList<Exercises>, val context: Context) :
         RecyclerView.Adapter<ExerciseStatusAdapter.ViewHolder>() {
 
 
@@ -18,9 +18,9 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>, val context: Co
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val model: ExerciseModel = items[position]
+        val model: Exercises = items[position]
 
-        holder.tvItem.text = model.getId()
+        holder.tvItem.text = model.code
 
  /*       if (model.getIsSelected()) {
             holder.tvItem.background = ContextCompat.getDrawable(context, R.drawable.item_circular_thin_color_accent_corder)

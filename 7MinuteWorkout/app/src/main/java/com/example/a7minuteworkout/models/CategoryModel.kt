@@ -1,6 +1,11 @@
-package com.example.a7minuteworkout
+package com.example.a7minuteworkout.models
 
-class CategoryModel (
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+
+@Parcelize
+data class CategoryModel (
     val cardio : Int,
     val plyometric : Int,
     val lower_body : Int,
@@ -10,8 +15,4 @@ class CategoryModel (
     val stretching : Int,
     val yoga : Int,
     val balance : Int,
-    val warmup : Int){
-
-
-
-}
+    val warmup : Int): Parcelable

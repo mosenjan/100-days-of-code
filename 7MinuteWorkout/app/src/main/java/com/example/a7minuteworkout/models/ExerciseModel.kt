@@ -1,6 +1,16 @@
-package com.example.a7minuteworkout
+package com.example.a7minuteworkout.models
 
-data class ExerciseModel (
+import Sets
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
+
+data class ExercisesModel(
+    val exercises: ArrayList<Exercises>
+)
+
+@Parcelize
+data class Exercises (
     val code : String,
     val title : String,
     val category : CategoryModel,
@@ -12,7 +22,7 @@ data class ExerciseModel (
     val impact : Int,
     val noisy : Int,
     val change_sides : Boolean,
-    val sets : String,
+    val sets :@RawValue Sets,
     val constraint_positive : String,
     val constraint_negative : String,
     val duration : Int,
@@ -23,18 +33,4 @@ data class ExerciseModel (
     val tool : String,
     val muscle_intensity : MuscleIntensityModel,
     val instructions : InstructionsModel
-    ) {
-
-    fun getId():String{
-        return code
-
-    }
-
-    fun getName():String{
-        return title
-
-    }
-
-
-
-}
+    ): Parcelable
