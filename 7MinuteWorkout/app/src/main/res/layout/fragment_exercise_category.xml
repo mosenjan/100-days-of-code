@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_2"
+    android:orientation="vertical"
+    tools:context=".fragments.ExerciseCategoryFragment">
+
+    <Button
+        android:id="@+id/btn_upperBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    بالا تنه"
+        android:gravity="fill"
+        android:textColor="@color/black"
+        android:background="@color/blue_3"
+        android:layout_marginHorizontal="20dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:drawableRight="@drawable/ic_ex_cat_upperbody"
+        android:padding="15dp"
+        android:layout_marginTop="40dp"/>
+    <Button
+        android:id="@+id/btn_lowerBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    پایین تنه"
+        android:gravity="fill"
+        android:textColor="@color/black"
+        android:background="@color/blue_3"
+        android:layout_marginHorizontal="20dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:drawableRight="@drawable/ic_ex_cat_lowerbody"
+        android:padding="15dp"
+        android:layout_marginTop="2dp"/>
+
+    <Button
+        android:id="@+id/btn_core"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    هسته"
+        android:gravity="fill"
+        android:textColor="@color/black"
+        android:background="@color/blue_3"
+        android:layout_marginHorizontal="20dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:drawableRight="@drawable/ic_ex_cat_core"
+        android:padding="15dp"
+        android:layout_marginTop="2dp"/>
+    <Button
+        android:id="@+id/btn_cardio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="   هوازی"
+        android:gravity="fill"
+        android:textColor="@color/black"
+        android:background="@color/blue_3"
+        android:layout_marginHorizontal="20dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:drawableRight="@drawable/ic_ex_cat_warmup"
+        android:padding="15dp"
+        android:layout_marginTop="2dp"/>
+
+    <Button
+        android:id="@+id/btn_stretching"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="   کششی"
+        android:gravity="fill"
+        android:textColor="@color/black"
+        android:background="@color/blue_3"
+        android:layout_marginHorizontal="20dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:drawableRight="@drawable/ic_ex_cat_stretching"
+        android:padding="15dp"
+        android:layout_marginTop="2dp"/>
+
+
+    <Button
+        android:id="@+id/btn_yoga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="   یوگا"
+        android:gravity="fill"
+        android:textColor="@color/black"
+        android:background="@color/blue_3"
+        android:layout_marginHorizontal="20dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:drawableRight="@drawable/ic_ex_cat_stretching"
+        android:padding="15dp"
+        android:layout_marginTop="2dp"/>
+
+
+</LinearLayout>

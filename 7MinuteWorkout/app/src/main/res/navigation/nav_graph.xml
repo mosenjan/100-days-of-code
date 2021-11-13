@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/exerciseListFragment">
+    app:startDestination="@id/newsFragment">
 
     <fragment
         android:id="@+id/exerciseListFragment"
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_exerciseListFragment_to_exerciseDetailFragment"
             app:destination="@id/exerciseDetailFragment" />
+        <argument
+            android:name="arg"
+            app:argType="string" />
 
     </fragment>
     <fragment
@@ -24,5 +27,71 @@
             android:name="exercise"
             app:argType="com.example.a7minuteworkout.models.Exercises" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseCategoryFragment"
+        android:name="com.example.a7minuteworkout.fragments.ExerciseCategoryFragment"
+        android:label="fragment_exercise_category"
+        tools:layout="@layout/fragment_exercise_category" >
+        <action
+            android:id="@+id/action_exerciseCategoryFragment_to_exerciseListFragment"
+            app:destination="@id/exerciseListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.example.a7minuteworkout.fragments.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.a7minuteworkout.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/workoutFragment"
+        android:name="com.example.a7minuteworkout.fragments.WorkoutFragment"
+        android:label="fragment_workout"
+        tools:layout="@layout/fragment_workout" >
+        <action
+            android:id="@+id/action_workoutFragment_to_strengthFragment"
+            app:destination="@id/strengthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exercisePreprationFragment"
+        android:name="com.example.a7minuteworkout.fragments.ExercisePreprationFragment"
+        android:label="fragment_exercise_prepration"
+        tools:layout="@layout/fragment_exercise_prepration" >
+        <argument
+            android:name="arg"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_exercisePreprationFragment_to_exerciseFragment"
+            app:destination="@id/exerciseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/strengthFragment"
+        android:name="com.example.a7minuteworkout.fragments.StrengthFragment"
+        android:label="fragment_strength"
+        tools:layout="@layout/fragment_strength" >
+        <action
+            android:id="@+id/action_strengthFragment_to_workoutSettingFragment"
+            app:destination="@id/workoutSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="com.example.a7minuteworkout.fragments.ExerciseFragment"
+        android:label="fragment_exercise"
+        tools:layout="@layout/fragment_exercise" />
+    <fragment
+        android:id="@+id/workoutSettingFragment"
+        android:name="com.example.a7minuteworkout.fragments.WorkoutSettingFragment"
+        android:label="fragment_workout_setting"
+        tools:layout="@layout/fragment_workout_setting" >
+        <action
+            android:id="@+id/action_workoutSettingFragment_to_exercisePreprationFragment"
+            app:destination="@id/exercisePreprationFragment" />
+        <argument
+            android:name="arg"
+            app:argType="string" />
     </fragment>
 </navigation>

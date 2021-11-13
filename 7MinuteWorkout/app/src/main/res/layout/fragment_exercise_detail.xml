@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.ExerciseDetailFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragments.ExerciseDetailFragment">
+    >
+    <LinearLayout
+        android:background="@color/blue_2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_action_back"
+            />
+        <TextView
+            android:text="Exercise Name"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvTitle"
@@ -13,7 +43,7 @@
         android:textSize="25sp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
         android:text="نام تمرین"
         android:gravity="center"/>
 
@@ -24,9 +54,10 @@
         android:gravity="center"
         android:layout_margin="10dp">
         <TextView
+            android:id="@+id/tvCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:text="کششی، مششی"
@@ -36,58 +67,61 @@
             android:layout_height="wrap_content"
             android:text="نوع حرکت:"
             android:textColor="@color/black"
-            android:textSize="15sp"/>
+            android:textSize="13sp"/>
     </LinearLayout>
 
     <VideoView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:layout_gravity="center"
+
         android:id="@+id/vView"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="نکات"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:gravity="right"
         android:layout_gravity="right"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="15dp"/>
     <TextView
         android:id="@+id/tvhints"
+        android:fontFamily="@font/jamim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ایجوری نزن اوجوری بزن"
-        android:textSize="23sp"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:gravity="right"
         android:layout_gravity="right"
-        android:layout_margin="10dp"/>
+        android:layout_marginHorizontal="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="تنفس"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:gravity="right"
         android:layout_gravity="right"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="15dp"/>
 
     <TextView
         android:id="@+id/tvBreathing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="نفس بکش نفس کش"
-        android:textSize="23sp"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:gravity="right"
         android:layout_gravity="right"
-        android:layout_margin="10dp"/>
+        android:layout_marginHorizontal="20dp"/>
 
 </LinearLayout>
+</ScrollView>

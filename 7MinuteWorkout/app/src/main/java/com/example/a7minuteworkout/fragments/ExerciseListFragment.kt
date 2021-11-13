@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minuteworkout.R
 import com.example.a7minuteworkout.adapters.ExerciseListAdapter
+import com.example.a7minuteworkout.models.Exercises
 import com.example.a7minuteworkout.models.ExercisesModel
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_exercise_list.view.*
@@ -27,20 +29,69 @@ class ExerciseListFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_exercise_list, container, false)
 
+        val arg: ExerciseListFragmentArgs by navArgs()
+
         view.rvExerciseList.layoutManager = LinearLayoutManager(activity)
 
 
-        try{
+        try {
 
             val jsonFileString = getJsonDataFromAsset(requireContext(), "exercises_bodyweight.json")
             var exercises = Gson().fromJson(jsonFileString, ExercisesModel::class.java)
 
-            val itemAdapter = ExerciseListAdapter(requireActivity(),exercises.exercises)
+            var exe: ArrayList<Exercises> = ArrayList()
+            var i = 0
+            when (arg.arg) {
+                "upper_body" -> {
+                    i = 0
+                    while (i < exercises.exercises.size) {
+                        if (exercises.exercises[i].category.upper_body > 0) exe.add(exercises.exercises[i])
+                        i++
+                    }
+                }
+                "lower_body" -> {
+                    i = 0
+                    while (i < exercises.exercises.size) {
+                        if (exercises.exercises[i].category.lower_body > 0) exe.add(exercises.exercises[i])
+                        i++
+                    }
+                }
+                "cardio" -> {
+                    i = 0
+                    while (i < exercises.exercises.size) {
+                        if (exercises.exercises[i].category.cardio > 0) exe.add(exercises.exercises[i])
+                        i++
+                    }
+                }
+                "core" -> {
+                    i = 0
+                    while (i < exercises.exercises.size) {
+                        if (exercises.exercises[i].category.core > 0) exe.add(exercises.exercises[i])
+                        i++
+                    }
+                }
+                "yoga" -> {
+                    i = 0
+                    while (i < exercises.exercises.size) {
+                        if (exercises.exercises[i].category.yoga > 0) exe.add(exercises.exercises[i])
+                        i++
+                    }
+                }
+                "stretching" -> {
+                    i = 0
+                    while (i < exercises.exercises.size) {
+                        if (exercises.exercises[i].category.stretching > 0) exe.add(exercises.exercises[i])
+                        i++
+                    }
+                }
+            }
+
+
+            val itemAdapter = ExerciseListAdapter(requireActivity(), exe)
             view.rvExerciseList.adapter = itemAdapter
 
 
-        }
-        catch (e: JSONException){
+        } catch (e: JSONException) {
             e.printStackTrace()
         }
 
@@ -58,7 +109,7 @@ class ExerciseListFragment : Fragment() {
             val buffer = ByteArray(size)
             myUsersJsonFile.read(buffer)
             myUsersJsonFile.close()
-            jsonString = String(buffer,charset)
+            jsonString = String(buffer, charset)
             //jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
         } catch (ioException: IOException) {
             ioException.printStackTrace()
@@ -67,8 +118,6 @@ class ExerciseListFragment : Fragment() {
 
         return jsonString
     }
-
-
 
 
 }

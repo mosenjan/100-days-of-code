@@ -25,7 +25,7 @@ data class Exercises (
     val sets :@RawValue Sets,
     val constraint_positive : String,
     val constraint_negative : String,
-    val duration : Int,
+    var duration : Int,
     val reps : Int,
     val reps_double : Boolean,
     val reps_count_times : List<String>,
